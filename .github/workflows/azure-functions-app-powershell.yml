@@ -1,0 +1,13 @@
+name: build-coreutils-msvc
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+      - run: cargo build --release -p uu_arch -p uu_basename -p uu_cat -p uu_cp -p uu_dir -p uu_dircolors -p uu_dirname -p uu_du -p uu_df -p uu_ln -p uu_ls -p uu_mkdir -p uu_mv -p uu_paste -p uu_pwd -p uu_readlink -p uu_rm -p uu_rmdir -p uu_shred -p uu_sync -p uu_touch -p uu_truncate -p uu_vdir
